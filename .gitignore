@@ -1,0 +1,22 @@
+# Ignore .env file containing environment variables
+.env
+
+# Byte-compiled Python files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environment folder
+venv/
+env/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Streamlit log files (optional)
+.streamlit/
+
+# Ignore system-specific files
+.DS_Store
+Thumbs.db
