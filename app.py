@@ -12,11 +12,11 @@ OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
 #load_dotenv()
 #OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
-db_user = os.getenv("DB_USER")
-db_password = os.getenv("DB_PASSWORD")
-db_host = os.getenv("DB_HOST")  # Public IP from GCP
-db_name = os.getenv("DB_NAME")
-db_port = os.getenv("DB_PORT", 3306)  # Default MySQL port is 3306
+db_user = st.secrets["DB_USER"]
+db_password = st.secrets["DB_PASSWORD"]
+db_host = st.secrets["DB_HOST"]  # Public IP from GCP
+db_name = st.secrets["DB_NAME"]
+db_port = st.secrets.get("DB_PORT", 3306)  # Default MySQL port is 3306
 
 #Initialize connection string
 db_uri = f"mysql+mysqlconnector://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}"
@@ -117,7 +117,8 @@ with st.sidebar:
 
     if st.button("Connect"):
         with st.spinner("Connecting to database..."):
-            db = init_database(user, password, host, port, database)
+            db_uri = f"mysql+mysqlconnector://{user}:{password}@{host}:{port}/{database}"
+            db = SQLDatabase.from_uri(db_uri)
             st.session_state.db = db
             st.success("Connected to database!")
 
