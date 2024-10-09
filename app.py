@@ -12,9 +12,17 @@ OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
 #load_dotenv()
 #OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
-def init_database(user: str, password: str, host: str, port: str, database: str) -> SQLDatabase:
-    db_uri = f"mysql+mysqlconnector://{user}:{password}@{host}:{port}/{database}"
-    return SQLDatabase.from_uri(db_uri)
+db_user = os.getenv("DB_USER")
+db_password = os.getenv("DB_PASSWORD")
+db_host = os.getenv("DB_HOST")  # Public IP from GCP
+db_name = os.getenv("DB_NAME")
+db_port = os.getenv("DB_PORT", 3306)  # Default MySQL port is 3306
+
+#Initialize connection string
+db_uri = f"mysql+mysqlconnector://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}"
+
+# Connect to the database
+db = SQLDatabase.from_uri(db_uri)
 
 def get_sql_chain(db):
   template = """
