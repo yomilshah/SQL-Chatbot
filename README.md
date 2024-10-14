@@ -104,8 +104,8 @@ The application relies on several environment variables to configure the connect
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yomilshah/Chat-With-Mysql.git
-   cd Chat-With-Mysql
+   git clone https://github.com/yomilshah/SQL-Chatbot.git
+   cd SQL-Chatbot
    ```
 2. **Install Dependencies**:
    ```bash
