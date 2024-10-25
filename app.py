@@ -107,10 +107,10 @@ with st.sidebar:
     st.subheader("Settings")
     st.write("This is a simple chat application using MySQL. Connect to the database and start chatting.")
 
-    host = st.text_input("Host", value="34.86.214.45", key="Host")
+    host = st.text_input("Host", value="database-1.clm4gwyasyc3.us-east-1.rds.amazonaws.com", key="Host")
     port = st.text_input("Port", value="3306", key="Port")
-    user = st.text_input("User", value="root", key="User")
-    password = st.text_input("Password", type="password", value="rootadmin", key="Password")
+    user = st.text_input("User", value="admin", key="User")
+    password = st.text_input("Password", type="password", value="chatbotdatabase", key="Password")
     database = st.text_input("Database", value="Chinook", key="Database")
 
     st.write(f"Connecting with: Host={host}, Port={port}, User={user}, Database={database}")
