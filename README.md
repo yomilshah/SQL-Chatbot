@@ -116,7 +116,7 @@ The application relies on several environment variables to configure the connect
    OPENAI_API_KEY=your_openai_api_key
    DB_USER=your_database_username
    DB_PASSWORD=your_database_password
-   DB_HOST=your_aws_public_address
+   DB_HOST=your_aws_rds_endpoint
    DB_NAME=your_database_name
    ```
 4. **Run the Application**:
